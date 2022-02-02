@@ -8,10 +8,14 @@ weatherForm.addEventListener(`submit`, (e) => {
 
     const location = search.value
 
+    // messageOne.classList.add('animate__animated', 'animate__fadeInUp');
     messageOne.textContent = `Loading...`
     messageTwo.textContent = ``
 
     fetch(`/weather?address=${location}`).then((response) => {
+        // messageOne.classList.remove('animate__animated', 'animate__fadeInUp')
+        messageOne.classList.add('animate__animated', 'animate__fadeInUp');
+        messageTwo.classList.add('animate__animated', 'animate__fadeInUp');
         response.json().then((data) => {
             if (data.error) {
                 return messageOne.textContent = data.error
